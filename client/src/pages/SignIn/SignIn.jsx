@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextInputAuth } from "../../components/TextInputAuth";
 import { PrimaryButton } from "../../components/PrimaryButton";
 import EmailIcon from "../../assets/icons/email.svg";
 import PasswordIcon from "../../assets/icons/password.svg";
-import "./SignIn.css";
-import userApi from "../../api/user";
 import { ToastContainer, notify } from "../../utils/toast";
-import useApi from "../../hooks/useApi";
 import ErrorIcon from "../../assets/icons/erroricon.svg";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { login } from "../../actions/auth";
 import SignInValidator from "../../validation/SignIn";
 
+import "./SignIn.css";
+
 function SignIn(props) {
-  const loginUserApi = useApi(userApi.loginUser);
   const navigate = useNavigate();
 
   const initialState = {
@@ -24,10 +22,7 @@ function SignIn(props) {
     inputPassword: "",
   };
   const [state, setState] = useState(initialState);
-  const [data, setData] = useState(null);
   const [hasError, setHasError] = useState(false);
-
-  const { isLoggedIn } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
@@ -53,8 +48,6 @@ function SignIn(props) {
       password: state.inputPassword,
     };
     const trimmedData = trimData(reqBody);
-    // loginUserApi.request(reqBody);
-    // setData(loginUserApi.data);
     const isvalid = SignInValidator.validate(trimmedData, notify);
     if (isvalid) {
       dispatch(
@@ -68,25 +61,6 @@ function SignIn(props) {
         .catch(() => {});
     }
   }
-
-  // if (isLoggedIn) {
-  //   navigate("/projects");
-  // }
-  // useEffect(() => {
-  //   if (loginUserApi.data) {
-  //     setData(loginUserApi.data);
-  //     if (loginUserApi.data.success) {
-  //       setHasError(false);
-  //       notify(loginUserApi.data.message, "success");
-  //       setTimeout(() => {
-  //         navigate("/");
-  //       }, 1000);
-  //     } else {
-  //       setHasError(true);
-  //     }
-  //   }
-  // }, [loginUserApi.data]);
-
   return (
     <section className="sign-in-container">
       <h1>Sign In</h1>

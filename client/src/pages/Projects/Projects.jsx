@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import PrimaryButtonWithIcon from "../../components/PrimaryButtonWithIcon/PrimaryButtonWithIcon";
-import { SearchInput } from "../../components/SearchInput";
-import PlusIcon from "../../assets/icons/plus.svg";
 import "./Projects.css";
 
 import { useNavigate } from "react-router-dom";
@@ -9,13 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProjects, createProject } from "../../actions/projects";
 import { getSkills } from "../../actions/skills";
 
-import { Modal } from "../../components/Modal";
-
-import { PrimaryButton } from "../../components/PrimaryButton";
-import Multiselect from "multiselect-react-dropdown";
 import ProjectsList from "./ProjectsList";
 
-import { TextInputRef } from "../../components/TextInputRef";
 import ProjectsHeader from "./components/ProjectsHeader";
 import ProjectsContent from "./components/ProjectsContent";
 import ProjectsListHolder from "./components/ProjectsListHolder";
@@ -41,9 +33,6 @@ function Projects(props) {
   const [stateModalForm, setStateModalForm] = useState(initialStateModalForm);
   const [isOpen, setOpen] = useState(false);
 
-  const [data, setData] = useState({});
-  const [userSkills, setUserSkills] = useState([]);
-
   const projects = useSelector((state) => state.projects);
   const skills = useSelector((state) => state.skills);
   const dispatch = useDispatch();
@@ -60,21 +49,6 @@ function Projects(props) {
     dispatch(getProjects());
     dispatch(getSkills());
   }, []);
-
-  const handleChange = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  function handleChangeModalForm(e) {
-    const value = e.target.value;
-    setStateModalForm({
-      ...stateModalForm,
-      [e.target.name]: value,
-    });
-  }
 
   const skillSelected = (selectedList, selectedItem) => {
     const arr = stateModalForm.inputProjectSkills;
@@ -99,12 +73,6 @@ function Projects(props) {
     });
   };
 
-  useEffect(() => {
-    if (projects.length > 0) {
-      setData(projects);
-    }
-  }, [projects]);
-
   const trimData = (data) => {
     const { name, description } = data;
     return { name: name.trim(), description: description.trim() };
@@ -117,7 +85,7 @@ function Projects(props) {
       description: inputRef.current.inputProjectDescription.value,
     });
     trimmedData.skills = stateModalForm.inputProjectSkills;
-    const isValid = ProjectsValidator.validate(trimmedData, notify,setOpen);
+    const isValid = ProjectsValidator.validate(trimmedData, notify, setOpen);
     if (isValid) {
       dispatch(
         createProject(
@@ -128,7 +96,8 @@ function Projects(props) {
               skills: trimmedData.skills,
             },
           },
-          notify
+          notify,
+          setOpen
         )
       );
       setStateModalForm({
@@ -139,41 +108,6 @@ function Projects(props) {
       }, 1000);
       // setOpen(false);
     }
-    // dispatch(
-    //   createProject({
-    //     project: {
-    //       name: inputRef.current.inputProjectName.value,
-    //       description: inputRef.current.inputProjectDescription.value,
-    //       skills: stateModalForm.inputProjectSkills,
-    //     },
-    //   })
-    // );
-
-    // setStateModalForm({
-    //   inputProjectSkills: [],
-    // });
-    // setTimeout(() => {
-    //   dispatch(getProjects());
-    // }, 1000);
-    // setOpen(false);
-  }
-
-  let projectsContent = null;
-  if (projects.length > 0) {
-    // console.log(projects);
-    // projectsContent = projects.map((project) => {
-    //   return (
-    //     <ProjectCard
-    // key={project.id}
-    // projectName={project.name}
-    // projectDescription={project.description}
-    // projectSkills={project.skills}
-    //     />
-    //   );
-    // });
-    projectsContent = <ProjectsList projects={projects} />;
-  } else {
-    projectsContent = <div>Loading ...</div>;
   }
 
   const [isSearchActive, setIsSearchActive] = React.useState(false);

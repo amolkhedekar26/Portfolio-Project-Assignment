@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../../pages/Dashbaord/Dashboard";
 import { Profile } from "../../pages/Profile";
@@ -8,24 +8,7 @@ import SignIn from "../../pages/SignIn/SignIn";
 import SignUp from "../../pages/SignUp/SignUp";
 import { Skills } from "../../pages/Skills";
 
-import { useDispatch, useSelector } from "react-redux";
-
-import { clearMessage } from "../../actions/message";
-
-import { history } from "../../helpers/history";
-
-
 function MyRoutes() {
-  const { user: currentUser } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    history.listen((location) => {
-      dispatch(clearMessage()); // clear message when changing location
-    });
-  }, [dispatch]);
-
-  
   return (
     <BrowserRouter>
       <Routes>

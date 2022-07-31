@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TextInputAuth } from "../../components/TextInputAuth";
 import "./SignUp.css";
 import EmailIcon from "../../assets/icons/email.svg";
 import PasswordIcon from "../../assets/icons/password.svg";
 import { PrimaryButton } from "../../components/PrimaryButton";
-import userApi from "../../api/user";
 import { ToastContainer, notify } from "../../utils/toast";
-import useApi from "../../hooks/useApi";
-import validator from "../../validation/SignUp";
 import { useNavigate } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { register } from "../../actions/auth";
 
 import SignUpValidator from "../../validation/SignUp";
 
 function SignUp() {
-  const registerUserApi = useApi(userApi.registerUser);
-
   const initialState = {
     inputEmail: "",
     inputPassword: "",
     inputConfirmPassword: "",
   };
   const [state, setState] = useState(initialState);
-  const [data, setData] = useState(null);
 
   const navigate = useNavigate();
 
@@ -58,12 +52,7 @@ function SignUp() {
     };
     const trimmedData = trimData(reqBody);
     const isvalid = SignUpValidator.validate(trimmedData, notify);
-    // if (state.inputPassword !== state.inputConfirmPassword) {
-    //   notify("Passwords do not match", "error");
-    //   return;
-    // }
-    // registerUserApi.request(reqBody);
-    // setData(registerUserApi.data);
+
     if (isvalid) {
       dispatch(register(trimmedData.email, trimmedData.password, notify))
         .then(() => {

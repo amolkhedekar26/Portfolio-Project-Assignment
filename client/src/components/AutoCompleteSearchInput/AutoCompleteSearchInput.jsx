@@ -1,9 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./AutoCompleteSearchInput.css";
 import SearchIcon from "../../assets/icons/search.svg";
 import PlusRedIcon from "../../assets/icons/plus_red.svg";
-import styled from "styled-components";
 
 class AutoCompleteSearchInput extends Component {
   static propTypes = {
@@ -34,11 +33,7 @@ class AutoCompleteSearchInput extends Component {
   onChange = (e) => {
     const { suggestions } = this.props;
     const userInput = e.currentTarget.value;
-    // this.setState({
-    //   focused: true,
-    // });
 
-    // this.props.setSearchActive(true);
     // Filter our suggestions that don't contain the user's input
     const filteredSuggestions = suggestions.filter(
       (suggestion) =>
@@ -148,8 +143,6 @@ class AutoCompleteSearchInput extends Component {
       : "search-div";
 
     const onFocus = () => {
-      // this.props.setIsActive(true);
-      // this.setState({ focused: true });
       this.setState({
         focused: true,
       });
@@ -157,8 +150,6 @@ class AutoCompleteSearchInput extends Component {
       this.props.setSearchActive(true);
     };
     const onBlur = (e) => {
-      // this.props.setSearchActive(false);
-      // this.setState({ focused: false });
       this.props.setSearchActive(false);
       this.setState({ focused: false });
       

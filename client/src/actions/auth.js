@@ -4,7 +4,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  SET_MESSAGE,
 } from "./types";
 
 import AuthService from "../services/auth.service";
@@ -30,22 +29,9 @@ export const register = (email, password) => (dispatch) => {
       return Promise.resolve();
     },
     (error) => {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
       dispatch({
         type: REGISTER_FAIL,
       });
-
-      dispatch({
-        type: SET_MESSAGE,
-        payload: message,
-      });
-
       return Promise.reject();
     }
   );
@@ -59,10 +45,6 @@ export const login = (email, password, setHasError, notify) => (dispatch) => {
         payload: { user: data.data },
       });
 
-      dispatch({
-        type: SET_MESSAGE,
-        payload: data.message,
-      });
       if (!data.success) {
         if (data.status === 404 || data.status === 422) {
           notify(data.message, "error");
@@ -75,20 +57,8 @@ export const login = (email, password, setHasError, notify) => (dispatch) => {
       return Promise.resolve();
     },
     (error) => {
-      // const message =
-      //   (error.response &&
-      //     error.response.data &&
-      //     error.response.data.message) ||
-      //   error.message ||
-      //   error.toString();
-
       dispatch({
         type: LOGIN_FAIL,
-      });
-
-      dispatch({
-        type: SET_MESSAGE,
-        payload: error.message,
       });
 
       return Promise.reject();

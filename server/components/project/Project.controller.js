@@ -23,9 +23,7 @@ const createProject = async (req, res, next) => {
 */
 const getAllProjects = async (req, res, next) => {
   try {
-    // const result = await projectService.getAllProjects();
-    // res.status(200).send(result);
-    const result = "";
+    const result = await projectService.getAllProjects();
     handleSuccessResponse(res, result, "Projects retrieved successfully");
   } catch (err) {
     next(err);
@@ -33,17 +31,17 @@ const getAllProjects = async (req, res, next) => {
 };
 
 const getProjectsByUserId = async (req, res, next) => {
-    try {
-        const userId = req.userId;
-        const result = await projectService.getProjectsByUserId(userId);
-        handleSuccessResponse(res, result, "Projects retrieved successfully");
-    } catch (err) {
-        next(err);
-    }
-}
+  try {
+    const userId = req.userId;
+    const result = await projectService.getProjectsByUserId(userId);
+    handleSuccessResponse(res, result, "Projects retrieved successfully");
+  } catch (err) {
+    next(err);
+  }
+};
 
 module.exports = {
   createProject,
   getAllProjects,
-  getProjectsByUserId
+  getProjectsByUserId,
 };

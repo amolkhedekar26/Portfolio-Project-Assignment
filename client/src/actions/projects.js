@@ -21,6 +21,8 @@ export const createProject = (data, notify, setOpen) => async (dispatch) => {
       type: CREATE_PROJECT,
       payload: res.data,
     });
+    notify(res.data.message, "success");
+    setOpen(false);
   } catch (err) {
     notify(err.response.data.message, "error");
     setOpen(true);

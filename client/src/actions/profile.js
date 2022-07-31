@@ -21,6 +21,7 @@ export const createProfile = (data, notify, setOpen) => async (dispatch) => {
       type: CREATE_PROFILE,
       payload: res.data,
     });
+    notify(res.data.message, "success");
     setOpen(false);
   } catch (err) {
     notify(err.response.data.message, "error");

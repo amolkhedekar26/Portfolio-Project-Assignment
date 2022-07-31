@@ -49,19 +49,14 @@ function AddProjectModal({
                 <div className="add-skills-input-div">
                   <img className="add-img" src={PlusRedIcon} alt="" />
                   <Multiselect
-                    options={skills.map((item) => item.name)} // Options to display in the dropdown
-                    selectedValues={stateModalForm.inputProjectSkills} // Preselected value to persist in dropdown
-                    onSelect={skillSelected} // Function will trigger on select event
-                    onRemove={skillRemoved} // Function will trigger on remove event
+                    options={skills.map((item) => item.name)} 
+                    selectedValues={stateModalForm.inputProjectSkills} 
+                    onSelect={skillSelected} 
+                    onRemove={skillRemoved} 
                     isObject={false}
                     placeholder=""
                   />
                 </div>
-
-                {/* {stateModalForm.inputProjectName.length > 0 &&
-              stateModalForm.inputProjectDescription.length > 0 && (
-                <PrimaryButton onClick={handleSave}>Save</PrimaryButton>
-              )} */}
                 <PrimaryButton onClick={handleSave}>Add Project</PrimaryButton>
               </form>
             </Modal>

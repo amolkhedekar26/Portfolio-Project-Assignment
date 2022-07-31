@@ -1,15 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { TextArea } from "../../components/TextArea";
-import { TextInput } from "../../components/TextInput";
-import { TextInputRef } from "../../components/TextInputRef";
-import { TextAreaRef } from "../../components/TextAreaRef";
-import { PrimaryButton } from "../../components/PrimaryButton";
+
 import "./Profile.css";
 
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfile, createProfile } from "../../actions/profile";
-import { Modal } from "../../components/Modal";
 import ProfileHeader from "./components/ProfileHeader";
 import ProfileDetails from "./components/ProfileDetails";
 import EditProfileModal from "./components/EditProfileModal";
@@ -81,19 +76,7 @@ function Profile(props) {
         dispatch(getProfile());
       }, 1000);
     }
-    // dispatch(
-    //   createProfile({
-    //     firstName: inputRef.current.inputFirstName.value,
-    //     lastName: inputRef.current.inputLastName.value,
-    //     location: inputRef.current.inputLocation.value,
-    //     contactNo: inputRef.current.inputContact.value,
-    //     aboutMe: inputRef.current.inputAbout.value,
-    //   })
-    // );
-    // setOpen(false);
-    // setTimeout(() => {
-    //   dispatch(getProfile());
-    // }, 1000);
+   
   }
 
   if (currentUser && profile) {

@@ -83,25 +83,7 @@ function Skills(props) {
       }, 1000);
       // setOpen(false);
     }
-    // dispatch(
-    //   createSkill(
-    //     {
-    //       skill: {
-    //         name: inputRef.current.inputSkillName.value,
-    //         level: stateModalForm.inputSkillLevel,
-    //       },
-    //     },
-    //     notify,
-    //     setOpen
-    //   )
-    // );
-    // setStateModalForm({
-    //   inputSkillLevel: 0,
-    // });
-    // setTimeout(() => {
-    //   dispatch(getSkills());
-    // }, 1000);
-    // setOpen(false);
+   
   }
 
   const [isSearchActive, setIsSearchActive] = React.useState(false);

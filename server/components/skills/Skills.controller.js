@@ -14,7 +14,6 @@ const createSkills = async (req, res, next) => {
 const getAllSkills = async (req, res, next) => {
   try {
     const result = await skillsService.getAllSkills();
-    // res.status(200).send(result);
     handleSuccessResponse(res, result, "Skills retrieved successfully");
   } catch (err) {
     next(err);

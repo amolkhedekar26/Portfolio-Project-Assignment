@@ -16,11 +16,9 @@ function SkillsHeader({
     });
   }
 
-  // const [isSearchActive, setIsSearchActive] = React.useState(false);
 
   return (
     <header className="skills-header">
-      {/* <SearchInput name="inputSearch" placeholder="Search for skills" /> */}
       <AutoCompleteSearchInput
         suggestions={arr}
         placeholder="Search for skills"

@@ -1,7 +1,5 @@
 import React from "react";
-import PrimaryButtonWithIcon from "../../../components/PrimaryButtonWithIcon/PrimaryButtonWithIcon";
 import PlusIcon from "../../../assets/icons/plus.svg";
-import { SearchInput } from "../../../components/SearchInput";
 import AutoCompleteSearchInput from "../../../components/AutoCompleteSearchInput/AutoCompleteSearchInput";
 import PrimaryButtonWithIconDynamic from "../../../components/PrimaryButtonWithIconDynamic/PrimaryButtonWithIconDynamic";
 
@@ -19,11 +17,6 @@ function ProjectsHeader({
   }
   return (
     <header className="projects-header">
-      {/* <SearchInput
-        name="inputSearch"
-        value=""
-        placeholder="Search for projects"
-      /> */}
       <AutoCompleteSearchInput
         suggestions={arr}
         placeholder="Search for Projects"

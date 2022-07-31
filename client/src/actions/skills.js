@@ -20,6 +20,7 @@ export const createSkill = (data, notify, setOpen) => async (dispatch) => {
       type: CREATE_SKILL,
       payload: res.data,
     });
+    notify(res.data.message, "success");
     setOpen(false);
   } catch (err) {
     notify(err.response.data.message, "error");

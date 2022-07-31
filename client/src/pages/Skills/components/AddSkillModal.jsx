@@ -43,10 +43,7 @@ function AddSkillModal({
                   filledIcon={<img src={FullStarIcon} alt="" />}
                   activeColor="#D83A52"
                 />
-                {/* {stateModalForm.inputSkillLevel > 0 &&
-              stateModalForm.inputSkillName.length > 0 && (
-                <PrimaryButton onClick={handleSave}> Save </PrimaryButton>
-              )} */}
+              
                 <PrimaryButton onClick={handleSave}>
                   {" "}
                   Add a Skill{" "}
