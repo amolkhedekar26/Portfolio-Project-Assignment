@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+html {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+body {
+  padding: 1.5rem;
+}
+.main-container {
+  background-color: #f8f7f7;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  min-height: 90vh;
+  /* padding-left: 320px; */
+}
+.profile,
+.skills,
+.projects {
+  /* display: flex; */
+  min-height: 85vh;
+  /* align-items: center;
+  justify-content: center; */
+  font-size: 3rem;
+  background-color: #fff;
+  margin-left: 320px;
+  border-radius: 1rem;
+  padding: 2rem 4rem;
+}
+.report {
+  /* display: flex; */
+  min-height: 85vh;
+  /* align-items: center;
+  justify-content: center; */
+  font-size: 3rem;
+  background-color: #fff;
+  margin-left: 320px;
+  border-radius: 1rem;
+  padding: 2rem 2rem;
+}
+.Toastify .Toastify__toast-body {
+  font-size: 16px !important;
+}

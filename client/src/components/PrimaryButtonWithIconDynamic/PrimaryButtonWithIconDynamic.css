@@ -1,0 +1,43 @@
+.primary-btn-dn-with-icon {
+  background-color: #d83a52;
+  border-radius: 0.5rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  margin-top: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+.primary-btn-dn-with-icon:hover {
+  background-color: #821a2a;
+  color: #fff;
+}
+.primary-btn-dn-with-icon:active {
+  background-color: #821a2a;
+  color: #fff;
+  transform: scale(0.95);
+}
+.primary-btn-dn-with-icon span {
+  margin-left: 8px !important;
+}
+.primary-btn-dn-with-icon-transparent {
+  background-color: #d83a52;
+  border-radius: 0.5rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  margin-top: 2rem;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.5;
+}

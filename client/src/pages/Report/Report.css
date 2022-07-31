@@ -1,0 +1,84 @@
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+  padding: 2rem;
+}
+.btn-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 16px;
+}
+.btn-div .primary-btn-with-icon,
+.btn-div .primary-btn-outline-with-icon {
+  margin: 0;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.report-header h5 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.report-content {
+  padding: 2rem;
+}
+.report-content h5 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 48px;
+  margin-bottom: 0;
+}
+.report-skills-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(195px, 20vw), 2fr));
+  margin: 32px 0 24px 0;
+  grid-gap: 30px;
+}
+.report-projects-div {
+  margin-top: 24px;
+}
+.profile-email-contact-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: lighter;
+  column-gap: 96px;
+}
+.profile-email {
+  max-width: 300px;
+  word-wrap: break-word;
+}
+.profile-about-div {
+  margin-top: 48px;
+  font-size: 24px;
+}
+.no-data {
+  width: 100%;
+  height: 100%;
+  background-color: #fae6e690;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 16px 24px;
+}
+.no-data img {
+  width: 50px;
+  height: 100px;
+}
+.no-data p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d83a52;
+  margin-left: 2rem;
+}
+.report-profile-title {
+  margin-bottom: 24px !important;
+}

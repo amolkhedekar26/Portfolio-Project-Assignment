@@ -1,0 +1,20 @@
+.textarea-input-wrapper-main{
+    margin-top: 1.5rem;
+}
+.label-container-textarea label{
+    color: #D83A52;
+    font-size: 20px;
+    font-weight: 500 !important;
+}
+.textarea-main{
+    margin-top: 1rem;
+    background-color: #F5F6F8;
+    padding: 1rem 2rem;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 0px 24px 24px 24px;
+    font-size: 20px;
+    resize: none;
+}

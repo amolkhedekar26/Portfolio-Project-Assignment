@@ -1,0 +1,72 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info-left {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  background-color: #d83a52;
+  padding: 2rem;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 50%;
+  color: white;
+}
+.profile-name-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 3rem;
+}
+.profile-name {
+  font-size: 32px;
+  font-weight: bold;
+}
+.profile-location {
+  font-size: 20px;
+  font-weight: normal;
+  color: #d83a52;
+  margin-top: 8px;
+}
+.profile-main {
+  margin-top: 3rem;
+  font-size: 20px;
+  width: min(75%);
+}
+.edit-btn {
+  outline: none;
+  border: none;
+  padding: 8px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.edit-btn:hover {
+  background-color: #f3e2e4;
+  color: white;
+  border-radius: 4px;
+}
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-container .text-input-wrapper-main + .text-input-wrapper-main {
+  margin-top: 0;
+}
+.modal-container .textarea-input-wrapper-main {
+  margin-top: 0;
+}
+.modal-container .primary-btn {
+  margin: 16px auto;
+  display: block;
+}

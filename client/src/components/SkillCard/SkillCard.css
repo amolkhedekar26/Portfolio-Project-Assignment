@@ -1,0 +1,23 @@
+.skill-card {
+  background-color: #f5f6f8;
+  border-radius: 0 24px 24px 24px;
+  padding: 8px 16px;
+  width: 100%;
+}
+.skill-card h6 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+.skill-card-transparent {
+  background-color: #f5f6f8;
+  border-radius: 0 24px 24px 24px;
+  padding: 8px 16px;
+  width: 100%;
+  opacity: 0.3;
+}
+.skill-card-transparent h6 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}

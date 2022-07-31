@@ -1,0 +1,24 @@
+.primary-btn{
+    background-color: #D83A52;
+    border-radius: 0.5rem;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 1rem 4rem;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    margin-top: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+.primary-btn:hover{
+    background-color: #821a2a;
+    color: #fff;
+}
+.primary-btn:active{
+    background-color: #821a2a;
+    color: #fff;
+    transform: scale(0.95);
+}

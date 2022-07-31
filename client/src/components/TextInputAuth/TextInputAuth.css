@@ -1,0 +1,36 @@
+.text-input-auth-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 0.5rem;
+    border: 1px solid #B6B5B5;
+    padding:0.3rem 0.5rem;
+    transition: 350ms;
+}
+.text-input-auth-wrapper + .text-input-auth-wrapper{
+    margin-top: 2rem;
+}
+.label-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0.5rem;
+    column-gap: 0.5rem;
+}
+.text-input-auth-wrapper input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    padding:0.5rem 1rem 0.5rem 1.2rem;
+    font-size: 1rem;
+    transition: 350ms;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}

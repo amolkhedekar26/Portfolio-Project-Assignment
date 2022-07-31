@@ -1,0 +1,117 @@
+.navbar {
+    background-color: #060b26;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    background-color: #fff;
+    width: 300px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms;
+  }
+  
+  .nav-menu.active {
+    left: 2.5rem;
+    top: 3rem;
+    border-radius: 1rem;
+    transition: 350ms;
+    padding:0 1rem;
+  }
+  .nav-upper{
+    padding-top: 5rem;
+  }
+  .nav-lower{
+    border-top: 1px solid #EEF1F3;
+  }
+  .nav-text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    height: 60px;
+  }
+  
+  .nav-text a {
+    text-decoration: none;
+    color:black;
+    font-size: 18px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius:0.5rem;
+    transition: 350ms;
+  }
+  
+  .nav-text a:hover {
+    background-color: #F8E1E7;
+    color: #D83A52;
+  }
+  .nav-text a.active-link{
+    background-color: #F8E1E7;
+    color: #D83A52;
+  }
+  .nav-menu-items {
+    width: 100%;
+  }
+  .link-item{
+    margin-left: 2rem;
+  }
+  .icon-ellipse{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: #70727C;
+    color: #fff;
+  }
+  .active-ellipse{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: #D83A52;
+    color: #fff;
+  }
+  .link-name-span {
+    margin-left: 24px;
+  }
+  .nav-text button{
+    text-decoration: none;
+    color:black;
+    font-size: 18px;
+    font-weight: normal;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius:0.5rem;
+    transition: 350ms;
+    background-color:transparent;
+  }
+  .nav-text button:hover {
+    background-color: #F8E1E7;
+    color: #D83A52;
+  }
+  .nav-lower button{
+    border: none;
+    cursor: pointer;
+  }
