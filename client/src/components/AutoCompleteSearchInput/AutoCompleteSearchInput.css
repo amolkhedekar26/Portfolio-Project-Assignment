@@ -54,7 +54,7 @@
 .search-div:focus-within {
   /* box-shadow: 0 0 0 9999px #000000b0; */
   border-radius: 4px;
-  box-shadow: 160px 163px 0 225px #000000b0 !important;
+  /* box-shadow: 160px 163px 0 225px #000000b0 !important; */
 }
 .search-div-transparent:focus-within {
   /* box-shadow: 0 0 0 9999px #000000b0; */

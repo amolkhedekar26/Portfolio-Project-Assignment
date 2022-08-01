@@ -150,9 +150,9 @@ class AutoCompleteSearchInput extends Component {
       this.props.setSearchActive(true);
     };
     const onBlur = (e) => {
+      
       this.props.setSearchActive(false);
       this.setState({ focused: false });
-      
     };
 
     return (
@@ -183,7 +183,9 @@ class AutoCompleteSearchInput extends Component {
               <button
                 id="add-btn"
                 className="add-new"
-                
+                onClick={() => {
+                  this.setState({ addBtnClicked: true });
+                }}
               >
                 Add a new {this.props.btnName}
               </button>
