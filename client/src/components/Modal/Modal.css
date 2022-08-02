@@ -5,17 +5,17 @@
 .modal-div {
   background: #fff;
   position: absolute;
-  left: 55%;
+  left: 40%;
   right: -10%;
   top: 50%;
   transform: translate(-35%, -50%);
   border-radius: 16px;
   padding: 16px 32px;
   min-height: fit-content;
-  max-height: 600px;
+  max-height: 500px;
   outline: none;
   overflow-y: scroll;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 225px rgba(22, 2, 2, 0.5);
 }
 
 .modal-div::-webkit-scrollbar {

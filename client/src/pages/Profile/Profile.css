@@ -54,10 +54,11 @@
 
 .modal-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 8%;
+  left: 27.3%;
+  width: 930px;
+  height: 550px;
+  border-radius: 16px;
   background: rgba(0, 0, 0, 0.5);
 }
 .modal-container .text-input-wrapper-main + .text-input-wrapper-main {
