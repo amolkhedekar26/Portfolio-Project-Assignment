@@ -25,7 +25,6 @@ body {
 .projects {
   /* display: flex; */
   min-height: 85vh;
-  overflow-y: scroll;
   /* align-items: center;
   justify-content: center; */
   font-size: 3rem;
