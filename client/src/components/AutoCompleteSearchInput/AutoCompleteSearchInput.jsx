@@ -34,6 +34,11 @@ class AutoCompleteSearchInput extends Component {
     const { suggestions } = this.props;
     const userInput = e.currentTarget.value;
 
+    this.setState({
+      focused: true,
+    });
+    this.props.setSearchActive(true);
+
     // Filter our suggestions that don't contain the user's input
     const filteredSuggestions = suggestions.filter(
       (suggestion) =>
