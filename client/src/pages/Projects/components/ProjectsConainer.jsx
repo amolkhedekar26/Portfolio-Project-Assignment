@@ -2,7 +2,7 @@ import React from 'react'
 
 function ProjectsConainer({ children }) {
   return (
-    <div className='projects'>
+    <div className='projects section-container'>
         {children}
     </div>
   )

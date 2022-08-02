@@ -67,6 +67,10 @@ class AutoCompleteSearchInput extends Component {
         showSuggestions: false,
         userInput: filteredSuggestions[activeSuggestion],
       });
+      this.setState({
+        focused: false,
+      });
+      this.props.setSearchActive(false);
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {

@@ -25,6 +25,7 @@ body {
 .projects {
   /* display: flex; */
   min-height: 85vh;
+  overflow-y: scroll;
   /* align-items: center;
   justify-content: center; */
   font-size: 3rem;
@@ -47,3 +48,17 @@ body {
 .Toastify .Toastify__toast-body {
   font-size: 16px !important;
 }
+/* .section-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.section-container::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 100px;
+}
+
+.section-container::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-image: linear-gradient(180deg, #d0368a 0%, #d83a52 99%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+} */
