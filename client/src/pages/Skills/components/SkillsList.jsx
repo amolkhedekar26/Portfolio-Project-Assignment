@@ -1,7 +1,7 @@
 import React from "react";
 import { SkillCard } from "../../../components/SkillCard";
 
-function SkillsList({ skills, isSearchActive }) {
+function SkillsList({ skills }) {
   return (
     <>
       {skills.map((skill) => {
@@ -10,7 +10,6 @@ function SkillsList({ skills, isSearchActive }) {
             key={skill.id}
             skillName={skill.name}
             level={skill.level}
-            isSearchActive={isSearchActive}
           />
         );
       })}

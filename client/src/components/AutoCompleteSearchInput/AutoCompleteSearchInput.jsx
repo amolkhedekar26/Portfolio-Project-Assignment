@@ -30,14 +30,29 @@ class AutoCompleteSearchInput extends Component {
     };
   }
 
-  onChange = (e) => {
-    const { suggestions } = this.props;
-    const userInput = e.currentTarget.value;
-
+  enableSearchFocus = () => {
     this.setState({
       focused: true,
     });
     this.props.setSearchActive(true);
+  };
+
+  disableSearchFocus = () => {
+    this.setState({
+      focused: false,
+    });
+    this.props.setSearchActive(false);
+  };
+
+  onChange = (e) => {
+    const { suggestions } = this.props;
+    const userInput = e.currentTarget.value;
+
+    // this.setState({
+    //   focused: true,
+    // });
+    // this.props.setSearchActive(true);
+    this.enableSearchFocus();
 
     // Filter our suggestions that don't contain the user's input
     const filteredSuggestions = suggestions.filter(
@@ -72,10 +87,11 @@ class AutoCompleteSearchInput extends Component {
         showSuggestions: false,
         userInput: filteredSuggestions[activeSuggestion],
       });
-      this.setState({
-        focused: false,
-      });
-      this.props.setSearchActive(false);
+      // this.setState({
+      //   focused: false,
+      // });
+      // this.props.setSearchActive(false);
+      this.disableSearchFocus();
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {
@@ -100,6 +116,11 @@ class AutoCompleteSearchInput extends Component {
         showSuggestions: false,
         userInput: "",
       });
+      // this.setState({
+      //   focused: false,
+      // });
+      // this.props.setSearchActive(false);
+      this.disableSearchFocus();
     }
   };
 
@@ -152,15 +173,17 @@ class AutoCompleteSearchInput extends Component {
       : "search-div";
 
     const onFocus = () => {
-      this.setState({
-        focused: true,
-      });
+      // this.setState({
+      //   focused: true,
+      // });
 
-      this.props.setSearchActive(true);
+      // this.props.setSearchActive(true);
+      this.enableSearchFocus();
     };
     const onBlur = (e) => {
-      this.props.setSearchActive(false);
-      this.setState({ focused: false });
+      // this.props.setSearchActive(false);
+      // this.setState({ focused: false });
+      this.disableSearchFocus();
     };
 
     return (

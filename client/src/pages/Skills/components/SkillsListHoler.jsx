@@ -2,12 +2,10 @@ import React from "react";
 import SkillsList from "./SkillsList";
 import BlankCanvas from "../../../assets/images/blank_canvas.svg";
 
-function SkillsListHoler({ skills, isSearchActive }) {
+function SkillsListHoler({ skills }) {
   let skillsContent = null;
   if (skills.length > 0) {
-    skillsContent = (
-      <SkillsList skills={skills} isSearchActive={isSearchActive} />
-    );
+    skillsContent = <SkillsList skills={skills} />;
   } else {
     skillsContent = (
       <div className="blank-canvas">

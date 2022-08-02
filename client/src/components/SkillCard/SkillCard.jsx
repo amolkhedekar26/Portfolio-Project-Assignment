@@ -4,10 +4,9 @@ import "./SkillCard.css";
 import EmptyStarIcon from "../../assets/icons/star_outline.svg";
 import FullStarIcon from "../../assets/icons/star_filled.svg";
 
-function SkillCard({ skillName, level, isSearchActive }) {
-  const className = isSearchActive ? "skill-card-transparent" : "skill-card";
+function SkillCard({ skillName, level }) {
   return (
-    <div className={className}>
+    <div className="skill-card">
       <h6>{skillName}</h6>
       <ReactStars
         count={5}

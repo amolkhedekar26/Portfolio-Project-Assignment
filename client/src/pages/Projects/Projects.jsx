@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProjects, createProject } from "../../actions/projects";
 import { getSkills } from "../../actions/skills";
 
-import ProjectsList from "./ProjectsList";
 
 import ProjectsHeader from "./components/ProjectsHeader";
 import ProjectsContent from "./components/ProjectsContent";
@@ -120,11 +119,10 @@ function Projects(props) {
         isSearchActive={isSearchActive}
         setIsSearchActive={setIsSearchActive}
       />
-      <ProjectsContent>
+      <ProjectsContent isSearchActive={isSearchActive}>
         {projects && (
           <ProjectsListHolder
             projects={projects}
-            isSearchActive={isSearchActive}
           />
         )}
 

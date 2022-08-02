@@ -83,7 +83,6 @@ function Skills(props) {
       }, 1000);
       // setOpen(false);
     }
-   
   }
 
   const [isSearchActive, setIsSearchActive] = React.useState(false);
@@ -100,9 +99,9 @@ function Skills(props) {
         isSearchActive={isSearchActive}
         setIsSearchActive={setIsSearchActive}
       />
-      <SkillsContent>
+      <SkillsContent isSearchActive={isSearchActive}>
         {skills && (
-          <SkillsListHoler skills={skills} isSearchActive={isSearchActive} />
+          <SkillsListHoler skills={skills} />
         )}
         <AddSkillModal
           isOpen={isOpen}

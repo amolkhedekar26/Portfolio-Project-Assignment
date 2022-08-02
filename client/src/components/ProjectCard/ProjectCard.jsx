@@ -2,17 +2,9 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import "./ProjectCard.css";
 
-function ProjectCard({
-  projectName,
-  projectDescription,
-  projectSkills,
-  isSearchActive,
-}) {
-  const className = isSearchActive
-    ? "project-card-transparent"
-    : "project-card";
+function ProjectCard({ projectName, projectDescription, projectSkills }) {
   return (
-    <div className={className}>
+    <div className="project-card">
       <h6>{projectName}</h6>
       <p>{projectDescription}</p>
       <div className="project-skills">

@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
-function ProjectsList({ projects, isSearchActive }) {
+function ProjectsList({ projects }) {
   return (
     <>
       {projects.map((project) => {
@@ -11,7 +11,6 @@ function ProjectsList({ projects, isSearchActive }) {
             projectName={project.name}
             projectDescription={project.description}
             projectSkills={project.skills}
-            isSearchActive={isSearchActive}
           />
         );
       })}

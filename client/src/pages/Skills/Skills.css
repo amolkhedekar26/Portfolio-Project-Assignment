@@ -10,6 +10,13 @@
   margin: 48px 0 8px 0;
   grid-gap: 30px;
 }
+.skills-content-transparent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(195px, 20vw), 2fr));
+  margin: 48px 0 8px 0;
+  grid-gap: 30px;
+  opacity: 0.3;
+}
 .skill-level-label {
   color: #d83a52;
 }

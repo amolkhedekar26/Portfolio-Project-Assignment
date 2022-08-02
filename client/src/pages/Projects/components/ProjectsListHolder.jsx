@@ -2,11 +2,11 @@ import React from "react";
 import ProjectsList from "../ProjectsList";
 import BlankCanvas from "../../../assets/images/blank_canvas.svg";
 
-function ProjectsListHolder({ projects, isSearchActive }) {
+function ProjectsListHolder({ projects }) {
   let projectsContent = null;
   if (projects.length > 0) {
     projectsContent = (
-      <ProjectsList projects={projects} isSearchActive={isSearchActive} />
+      <ProjectsList projects={projects} />
     );
   } else {
     projectsContent = (
