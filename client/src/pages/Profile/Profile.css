@@ -59,7 +59,7 @@
   width: 930px;
   height: 550px;
   border-radius: 16px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #000000b0;
 }
 .modal-container .text-input-wrapper-main + .text-input-wrapper-main {
   margin-top: 0;
