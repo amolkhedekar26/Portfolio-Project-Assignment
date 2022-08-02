@@ -47,6 +47,21 @@ const getByEmail = async (Model, email) => {
 };
 
 /**
+ * Get user by email
+ * @param {Model} Model
+ * @param {String} uid
+ * @returns {Promise}
+ */
+const getByUid = async (Model, uid) => {
+  return new Promise((resolve, reject) => {
+    Model.findOne({ uid: uid }, function (err, data) {
+      if (err) reject(err);
+      resolve(data);
+    });
+  });
+};
+
+/**
  * Update user by userId
  * @param {Model} Model
  * @param {String} userId
@@ -55,7 +70,7 @@ const getByEmail = async (Model, email) => {
  */
 const update = async (Model, userId, data) => {
   return new Promise((resolve, reject) => {
-    Model.findOneAndUpdate({ userId: userId }, data, function (err, data) {
+    Model.findOneAndUpdate({ uid: userId }, data, function (err, data) {
       if (err) reject(err);
       resolve(data);
     });
@@ -81,6 +96,7 @@ module.exports = {
   create,
   list,
   getByEmail,
+  getByUid,
   update,
   deleteById,
 };

@@ -4,6 +4,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  EMAIL_VERIFY_SUCCESS,
+  CHANGE_PASSWORD_SUCCESS,
 } from "./types";
 
 import AuthService from "../services/auth.service";
@@ -55,6 +57,55 @@ export const login = (email, password, setHasError, notify) => (dispatch) => {
       }
       notify(data.message, "success");
       return Promise.resolve();
+    },
+    (error) => {
+      dispatch({
+        type: LOGIN_FAIL,
+      });
+
+      return Promise.reject();
+    }
+  );
+};
+
+export const changePassword =
+  (userId, resetToken, password, notify) => (dispatch) => {
+    return AuthService.changePassword(userId, resetToken, password).then(
+      (data) => {
+        dispatch({
+          type: CHANGE_PASSWORD_SUCCESS,
+        });
+
+        if (!data.success) {
+          notify(data.message, "error");
+          return Promise.reject();
+        }
+        notify(data.message, "success");
+        return Promise.resolve(data.data);
+      },
+      (error) => {
+        dispatch({
+          type: LOGIN_FAIL,
+        });
+
+        return Promise.reject();
+      }
+    );
+  };
+
+export const verifyEmail = (email) => (dispatch) => {
+  return AuthService.verifyEmail(email).then(
+    (data) => {
+      dispatch({
+        type: EMAIL_VERIFY_SUCCESS,
+      });
+
+      if (!data.success) {
+        notify(data.message, "error");
+        return Promise.reject();
+      }
+      notify(data.message, "success");
+      return Promise.resolve(data.data);
     },
     (error) => {
       dispatch({

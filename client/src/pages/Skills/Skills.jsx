@@ -12,6 +12,7 @@ import SkillsContainer from "./components/SkillsContainer";
 import "./Skills.css";
 import { ToastContainer, notify } from "../../utils/toast";
 import SkillsValidator from "../../validation/Skills";
+import SearchSpinner from "../../components/SearchSpinner/SearchSpinner";
 
 function Skills(props) {
   const initialStateModalForm = {
@@ -24,6 +25,7 @@ function Skills(props) {
 
   const [stateModalForm, setStateModalForm] = useState(initialStateModalForm);
   const [isOpen, setOpen] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const skills = useSelector((state) => state.skills);
   const dispatch = useDispatch();
@@ -37,7 +39,7 @@ function Skills(props) {
   }, [currentUser]);
 
   useEffect(() => {
-    dispatch(getSkills());
+    dispatch(getSkills(setLoading));
   }, []);
 
   const levelChanged = (newLevel) => {
@@ -72,14 +74,15 @@ function Skills(props) {
             },
           },
           notify,
-          setOpen
+          setOpen,
+          setLoading
         )
       );
       setStateModalForm({
         inputSkillLevel: 0,
       });
       setTimeout(() => {
-        dispatch(getSkills());
+        dispatch(getSkills(setLoading));
       }, 1000);
       // setOpen(false);
     }
@@ -99,10 +102,9 @@ function Skills(props) {
         isSearchActive={isSearchActive}
         setIsSearchActive={setIsSearchActive}
       />
+
       <SkillsContent isSearchActive={isSearchActive}>
-        {skills && (
-          <SkillsListHoler skills={skills} />
-        )}
+        {skills && <SkillsListHoler skills={skills} isLoading={isLoading} />}
         <AddSkillModal
           isOpen={isOpen}
           setOpen={setOpen}

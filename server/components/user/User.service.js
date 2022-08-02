@@ -6,7 +6,13 @@ const {
   validateUserLogin,
 } = require("./User.validation");
 
-const { signAccessToken, signRefreshToken } = require("../../utils/jwt");
+const {
+  signAccessToken,
+  signRefreshToken,
+  signResetToken,
+  verifyResetToken,
+} = require("../../utils/jwt");
+const { schemaForgot, schemaReset } = require("../../utils/validation.schema");
 
 const registerUser = async (data) => {
   return new Promise(async (resolve, reject) => {
@@ -54,7 +60,64 @@ const loginUser = async (data) => {
   });
 };
 
+const verifyEmail = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const validatedData = await schemaForgot.validateAsync(data);
+      const foundUser = await repository.getByEmail(User, validatedData.email);
+      if (!foundUser) {
+        throw new CreateError.NotFound(
+          `Sorry! ${result.email} is not registered.`
+        );
+      }
+      const secret = foundUser.password + "-" + foundUser.createdAt;
+      const resetToken = await signResetToken(foundUser.uid, secret);
+      resolve({
+        email: foundUser.email,
+        userId: foundUser.uid,
+        resetToken: resetToken,
+      });
+    } catch (error) {
+      if (error.isJoi === true) {
+        reject(new CreateError.BadRequest("Invalid email address"));
+      }
+      reject(error);
+    }
+  });
+};
+
+const changePassword = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { uid, resetToken, password } = data;
+      const foundUser = await repository.getByUid(User, uid);
+
+      if (!foundUser) {
+        throw new createError.Forbidden("User not found");
+      }
+
+      const validatedData = await schemaReset.validateAsync({
+        password: password,
+      });
+      const secret = foundUser.password + "-" + foundUser.createdAt;
+      const userUid = await verifyResetToken(resetToken, secret);
+      if (userUid === foundUser.uid) {
+        foundUser.password = password;
+        await foundUser.save();
+        resolve({});
+      }
+    } catch (error) {
+      if (error.isJoi === true) {
+        reject(new CreateError.BadRequest("Invalid email address"));
+      }
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   registerUser,
   loginUser,
+  verifyEmail,
+  changePassword,
 };

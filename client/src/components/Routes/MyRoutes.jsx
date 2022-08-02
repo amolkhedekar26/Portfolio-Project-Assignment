@@ -6,6 +6,7 @@ import ForgotPassword from "../../pages/ForgotPassword/ForgotPassword";
 import { Profile } from "../../pages/Profile";
 import { Projects } from "../../pages/Projects";
 import { Report } from "../../pages/Report";
+import ResetPassword from "../../pages/ResetPassword/ResetPassword";
 import SignIn from "../../pages/SignIn/SignIn";
 import SignUp from "../../pages/SignUp/SignUp";
 import { Skills } from "../../pages/Skills";
@@ -24,6 +25,10 @@ function MyRoutes() {
         <Route path="/login" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route
+          path="/reset-password/:userId/:resetToken"
+          element={<ResetPassword />}
+        />
       </Routes>
     </BrowserRouter>
   );

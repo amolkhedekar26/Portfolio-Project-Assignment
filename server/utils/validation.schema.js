@@ -42,7 +42,12 @@ const schemaForgot = Joi.object().keys({
 });
 
 const schemaReset = Joi.object().keys({
-  password: Joi.string().min(8).required(),
+  password: Joi.string().min(8).max(30).required().messages({
+    "string.empty": "Password cannot be empty",
+    "string.min": "Password must be at least 8 characters long",
+    "string.max": "Password must be at most 30 characters long",
+    "any.required": "Password is required",
+  }),
 });
 
 const schemaProfile = Joi.object().keys({

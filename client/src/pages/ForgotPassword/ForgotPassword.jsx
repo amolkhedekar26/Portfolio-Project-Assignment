@@ -7,6 +7,7 @@ import { ToastContainer, notify } from "../../utils/toast";
 import { useDispatch } from "react-redux";
 
 import "./ForgotPassword.css";
+import { verifyEmail } from "../../actions/auth";
 
 function ForgotPassword(props) {
   const navigate = useNavigate();
@@ -37,14 +38,26 @@ function ForgotPassword(props) {
     e.preventDefault();
     const reqBody = {
       email: state.inputEmail,
-      password: state.inputPassword,
     };
     const trimmedData = trimData(reqBody);
+    if (trimmedData.email.length === 0) {
+      notify("Please enter your email", "error");
+      return;
+    }
+    dispatch(verifyEmail(trimmedData.email, notify))
+      .then((data) => {
+        setTimeout(() => {
+          navigate(`/reset-password/${data.userId}/${data.resetToken}`);
+        }, 1000);
+      })
+      .catch(() => {});
   }
   return (
     <section className="forgot-password-container">
       <h1>Forgot Password</h1>
-      <p className="forgot-text">No worries, we’ll send you reset instructions.</p>
+      <p className="forgot-text">
+        No worries, we’ll send you reset instructions.
+      </p>
       <form className="forgot-password-form">
         <TextInputAuth
           icon={EmailIcon}

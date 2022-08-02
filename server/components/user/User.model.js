@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
-const uuid = require('uuid');
+const uuid = require("uuid");
 const { SALT_ROUNDS } = require("../../constants/Constant");
 
 // Create Schema
@@ -30,6 +30,7 @@ const userSchema = new Schema({
 userSchema.pre("save", async function (next) {
   try {
     const salt = await bcrypt.genSalt(SALT_ROUNDS);
+    if (!this.isModified("password")) return next();
     const hashedPassword = await bcrypt.hash(this.password, salt);
     this.password = hashedPassword;
     next();

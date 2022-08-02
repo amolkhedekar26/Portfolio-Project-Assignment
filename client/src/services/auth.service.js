@@ -35,6 +35,34 @@ const login = (email, password) => {
     });
 };
 
+const verifyEmail = (email) => {
+  return axios
+    .post(API_URL + "verify-email", {
+      email,
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      return error.response.data;
+    });
+};
+
+const changePassword = (userId, resetToken, password) => {
+  return axios
+    .post(API_URL + "change-password", {
+      uid: userId,
+      resetToken: resetToken,
+      password: password,
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      return error.response.data;
+    });
+};
+
 const logout = () => {
   localStorage.removeItem("user");
 };
@@ -43,4 +71,6 @@ export default {
   register,
   login,
   logout,
+  verifyEmail,
+  changePassword,
 };

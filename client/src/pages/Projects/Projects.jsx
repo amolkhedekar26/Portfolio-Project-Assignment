@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProjects, createProject } from "../../actions/projects";
 import { getSkills } from "../../actions/skills";
 
-
 import ProjectsHeader from "./components/ProjectsHeader";
 import ProjectsContent from "./components/ProjectsContent";
 import ProjectsListHolder from "./components/ProjectsListHolder";
@@ -28,9 +27,9 @@ function Projects(props) {
 
   const { user: currentUser } = useSelector((state) => state.auth);
 
-  const [state, setState] = useState(initialState);
   const [stateModalForm, setStateModalForm] = useState(initialStateModalForm);
   const [isOpen, setOpen] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const projects = useSelector((state) => state.projects);
   const skills = useSelector((state) => state.skills);
@@ -45,7 +44,7 @@ function Projects(props) {
   }, [currentUser]);
 
   useEffect(() => {
-    dispatch(getProjects());
+    dispatch(getProjects(setLoading));
     dispatch(getSkills());
   }, []);
 
@@ -96,14 +95,15 @@ function Projects(props) {
             },
           },
           notify,
-          setOpen
+          setOpen,
+          setLoading
         )
       );
       setStateModalForm({
         inputProjectSkills: [],
       });
       setTimeout(() => {
-        dispatch(getProjects());
+        dispatch(getProjects(setLoading));
       }, 1000);
       // setOpen(false);
     }
@@ -121,9 +121,7 @@ function Projects(props) {
       />
       <ProjectsContent isSearchActive={isSearchActive}>
         {projects && (
-          <ProjectsListHolder
-            projects={projects}
-          />
+          <ProjectsListHolder projects={projects} isLoading={isLoading} />
         )}
 
         <AddProjectModal
