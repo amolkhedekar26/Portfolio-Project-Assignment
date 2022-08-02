@@ -150,7 +150,6 @@ class AutoCompleteSearchInput extends Component {
       this.props.setSearchActive(true);
     };
     const onBlur = (e) => {
-      
       this.props.setSearchActive(false);
       this.setState({ focused: false });
     };

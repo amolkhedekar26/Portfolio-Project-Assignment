@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../../pages/Dashbaord/Dashboard";
+import ForgotPassword from "../../pages/ForgotPassword/ForgotPassword";
+
 import { Profile } from "../../pages/Profile";
 import { Projects } from "../../pages/Projects";
 import { Report } from "../../pages/Report";
@@ -21,6 +23,7 @@ function MyRoutes() {
         </Route>
         <Route path="/login" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </BrowserRouter>
   );

@@ -3,6 +3,7 @@ import { MyRoutes } from "./components/Routes";
 
 function App() {
   return (
+    
     <main className="main-container">
       <MyRoutes />
     </main>
