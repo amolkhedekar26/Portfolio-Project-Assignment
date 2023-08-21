@@ -7,5 +7,5 @@ so that they can make their personal projects, skills, demographics updates.
   - Add, Update, Delete the Skills student has along with ratings
   - Add , Update , Delete Projects and their respective skills
   - Download portfolio as PDF report 
-* Backend - Node JS Mocha
+* Backend - Node JS & Mocha
 * Frontend - React JS 
